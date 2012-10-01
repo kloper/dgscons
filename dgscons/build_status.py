@@ -4,10 +4,10 @@
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE_1_0.txt or copy at
 #  http://www.boost.org/LICENSE_1_0.txt)
-# 
-# This file is part of dgd library (http://dgd.sf.net).
 #
-# dgscons/build_status.py -- routines for handling build results
+# This file is part of dgscons library (https://github.com/kloper/dgscons.git) 
+#
+# dgscons/dgscons/build_status.py -- routines for handling build results
 # see http://www.scons.org/doc/2.0.1/HTML/scons-user/x2045.html
 #
 

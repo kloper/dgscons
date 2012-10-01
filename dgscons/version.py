@@ -5,9 +5,9 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 #  http://www.boost.org/LICENSE_1_0.txt)
 # 
-# This file is part of dgd library (http://dgd.sf.net).
+# This file is part of dgscons library (https://github.com/kloper/dgscons.git)
 #
-# dgscons/version.py -- serialized product version 
+# dgscons/dgscons/version.py -- serialized product version 
 #
 
 """

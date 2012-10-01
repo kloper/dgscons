@@ -5,10 +5,9 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 #  http://www.boost.org/LICENSE_1_0.txt)
 # 
-# This file is part of dgd library (http://dgd.sf.net).
+# This file is part of dgscons library (https://github.com/kloper/dgscons.git)
 #
-# dgscons/build_status.py -- routines for handling build results
-# see http://www.scons.org/doc/2.0.1/HTML/scons-user/x2045.html
+# dgscons/dgscons/__init__.py -- routines for initializing dgscons
 #
 
 import os
