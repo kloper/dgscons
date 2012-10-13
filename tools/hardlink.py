@@ -12,16 +12,26 @@
 #
 
 import sys
+import string
+
 import SCons
 
-def CreateHardLink(fs, src, dst):
+def link_func(dst, src):
     import ctypes
     if not ctypes.windll.kernel32.CreateHardLinkA(dst, src, 0): 
         raise OSError
 
+def CreateHardLink(fs, src, dst):
+    link_func(dst, src)
+
 def generate(env):
     if sys.platform == 'win32':
         SCons.Node.FS._hardlink_func = CreateHardLink
+        SCons.Defaults.Link = SCons.Defaults.ActionFactory(
+            link_func,
+            lambda dest, src: 'Link("{}", "{}")'.format(dest, src),
+            convert=str
+            )
 
 def exists(env):
      if sys.platform == 'win32':

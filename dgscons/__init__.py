@@ -42,6 +42,12 @@ AddOption('--variant',
           action='store',
           help='variant to compile')
 
+AddOption('--dump-env', 
+          dest='dumpenv',
+          default=None,
+          action='store_true',
+          help='dump environment and exit')
+
 def setup_environment(tools):
     env = None
     if sys.platform.find('win') == 0:
@@ -81,11 +87,20 @@ def setup_environment(tools):
         compile_mode = '-O2'
     else:
         raise DGSConsException("Variant {} is not supported".format(variant))
-    
-    return DefaultEnvironment(ENV = env, 
-                              tools = tools,
-                              VARIANT = variant,
-                              CCFLAGS = compile_mode, 
-                              CXXFLAGS = compile_mode, 
-                              LINKFLAGS = compile_mode)
 
+    default_environment =  DefaultEnvironment(
+        ENV = env, 
+        tools = tools,
+        VARIANT = variant,
+        CCFLAGS = compile_mode, 
+        CXXFLAGS = compile_mode, 
+        LINKFLAGS = compile_mode,
+        QTDIR = ARGUMENTS.get('qtroot', None),
+        DGDINC = ARGUMENTS.get('dgdinc', None) 
+        )
+
+    if GetOption('dumpenv'):
+        print default_environment.Dump()
+        default_environment.Exit(0)
+
+    return default_environment
